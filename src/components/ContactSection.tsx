@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Send } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -40,115 +40,152 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-heading">Contact Us</h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form */}
-          <div className="animate-fade-in-up">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-allison-dark"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-allison-dark"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-allison-dark"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  required
-                  className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-allison-dark"
-                />
-              </div>
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-3 px-6 bg-allison-dark text-allison-light hover:bg-opacity-90 transition-all duration-300 ${
-                  isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                }`}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-              
-              {submitSuccess && (
-                <div className="text-green-600 text-center py-2">
-                  Thank you for your message! We'll be in touch soon.
-                </div>
-              )}
-            </form>
-          </div>
-          
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           {/* Contact Information */}
-          <div className="space-y-12">
+          <div className="lg:col-span-2 space-y-12">
             <div className="space-y-6">
-              <h3 className="text-2xl font-playfair">Get in Touch</h3>
+              <h3 className="text-2xl font-playfair relative after:content-[''] after:block after:w-16 after:h-0.5 after:bg-allison-dark after:mt-4">
+                Let's Connect
+              </h3>
               <p className="text-gray-700 leading-relaxed">
-                Have a project in mind or want to learn more about our services? 
-                Reach out to us using the contact form or through any of the channels below.
+                Ready to elevate your brand's visual presence? Reach out to us to discuss your project needs. 
+                Our team is excited to bring your creative vision to life.
               </p>
               
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <MapPin className="mr-4 text-allison-dark" />
-                  <span>123 Creative Avenue, New York, NY 10001</span>
+              <div className="space-y-6 mt-8">
+                <div className="flex items-center p-4 bg-gray-50 rounded-lg transition-transform hover:translate-x-2 duration-300">
+                  <div className="bg-allison-dark p-3 rounded-full text-white mr-4">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-allison-dark">Location</h4>
+                    <p className="text-gray-600">123 Creative Avenue, New York, NY 10001</p>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <Phone className="mr-4 text-allison-dark" />
-                  <span>+1 (555) 123-4567</span>
+                
+                <div className="flex items-center p-4 bg-gray-50 rounded-lg transition-transform hover:translate-x-2 duration-300">
+                  <div className="bg-allison-dark p-3 rounded-full text-white mr-4">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-allison-dark">Phone</h4>
+                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <Mail className="mr-4 text-allison-dark" />
-                  <span>contact@allisonmedia.com</span>
+                
+                <div className="flex items-center p-4 bg-gray-50 rounded-lg transition-transform hover:translate-x-2 duration-300">
+                  <div className="bg-allison-dark p-3 rounded-full text-white mr-4">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-allison-dark">Email</h4>
+                    <p className="text-gray-600">contact@azhizenmedia.com</p>
+                  </div>
                 </div>
               </div>
             </div>
             
             {/* Map */}
-            <div className="h-64 bg-gray-200 w-full overflow-hidden">
+            <div className="h-64 bg-gray-200 w-full overflow-hidden rounded-lg shadow-md">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.25280917326!2d-74.11976341554046!3d40.70517865495546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1615902880508!5m2!1sen!2sca"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 loading="lazy"
-                title="Allison Media location"
+                title="Azhizen Media location"
               ></iframe>
+            </div>
+          </div>
+          
+          {/* Contact Form */}
+          <div className="lg:col-span-3 animate-fade-in-up">
+            <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+              <h3 className="text-2xl font-playfair mb-6 text-allison-dark">Send Us a Message</h3>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-allison-dark focus:border-transparent transition-all duration-300"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-allison-dark focus:border-transparent transition-all duration-300"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-allison-dark focus:border-transparent transition-all duration-300"
+                    placeholder="What's this about?"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    required
+                    className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-allison-dark focus:border-transparent transition-all duration-300"
+                    placeholder="Tell us about your project..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full py-3 px-6 bg-allison-dark text-allison-light rounded-md hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center ${
+                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                  }`}
+                >
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="ml-2 w-4 h-4" />
+                    </>
+                  )}
+                </button>
+                
+                {submitSuccess && (
+                  <div className="bg-green-50 text-green-700 text-center py-3 px-4 rounded-md flex items-center justify-center">
+                    <Check className="w-5 h-5 mr-2" />
+                    <span>Thank you for your message! We'll be in touch soon.</span>
+                  </div>
+                )}
+              </form>
             </div>
           </div>
         </div>

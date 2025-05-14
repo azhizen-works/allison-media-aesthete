@@ -49,17 +49,29 @@ const ServicesSection = () => {
     <section id="services" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="section-heading">Our Services</h2>
+        
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <p className="text-lg text-gray-700">
+            We offer a comprehensive suite of creative services designed to elevate your brand and captivate your audience.
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="service-card p-8 flex flex-col items-center text-center animate-fade-in-up"
+              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-fade-in-up"
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <service.icon className="service-icon" />
-              <h3 className="service-title text-allison-dark">{service.title}</h3>
-              <div className="service-overlay text-allison-light">
-                <p>{service.description}</p>
+              <div className="p-8 flex flex-col items-center text-center h-full relative overflow-hidden">
+                <div className="relative z-10 transition-transform duration-300 group-hover:-translate-y-4">
+                  <service.icon className="h-16 w-16 mb-6 text-allison-dark transition-all duration-300 group-hover:text-white" />
+                  <h3 className="text-xl font-medium mb-4 transition-all duration-300 group-hover:text-white">{service.title}</h3>
+                </div>
+                
+                <div className="absolute inset-0 bg-allison-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center p-6">
+                  <p className="text-white">{service.description}</p>
+                </div>
               </div>
             </div>
           ))}
