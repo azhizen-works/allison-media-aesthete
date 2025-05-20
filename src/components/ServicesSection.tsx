@@ -1,54 +1,54 @@
 
-import { Camera, Video, Image, Film, Pencil, LineChart, Headphones, Instagram } from 'lucide-react';
+import { FcSlrBackSide  ,FcCamcorderPro , FcRadarPlot , FcFilm , FcDocument, FcPositiveDynamic  , FcHeadset  ,  FcIpad} from "react-icons/fc";
 import AnimatedElement from './AnimatedElement';
 import { useEffect } from 'react';
 
 const services = [
   {
     title: "Photography",
-    icon: Camera,
+    icon:  FcSlrBackSide ,
     description: "Professional photography services tailored to capture your vision, from corporate events to artistic portfolios.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Videography",
-    icon: Video,
+    icon: FcCamcorderPro ,
     description: "Dynamic video production services, creating compelling visual stories that engage and inspire your audience.",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Graphic Design",
-    icon: Image,
+    icon: FcRadarPlot,
     description: "Creative graphic design solutions that communicate your brand message with clarity and visual impact.",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Video Editing & Animation",
-    icon: Film,
+    icon: FcFilm,
     description: "Expert post-production services transforming raw footage into polished, professional final products.",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Content Creation",
-    icon: Pencil,
+    icon:  FcDocument,
     description: "Strategic content creation combining visual assets and messaging for maximum engagement.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Digital Marketing",
-    icon: LineChart,
+    icon: FcPositiveDynamic  ,
     description: "Data-driven digital marketing strategies to elevate your brand's online presence and reach.",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Media Support",
-    icon: Headphones,
+    icon: FcHeadset,
     description: "Comprehensive media support services to ensure your projects run smoothly from concept to completion.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
   },
   {
     title: "Social Media Management",
-    icon: Instagram,
+    icon: FcIpad,
     description: "End-to-end social media management, building community and driving engagement across platforms.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
   }

@@ -1,7 +1,7 @@
-
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import AnimatedElement from './AnimatedElement';
+import liveWallpaper from '../assets/videos/live-wallpaper.mp4'; // Import the video
 
 const HeroSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -35,18 +35,28 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="hero-section" ref={heroRef}>
+    <section id="home" className="hero-section relative min-h-screen flex flex-col justify-center items-center" ref={heroRef}>
+      {/* Note: This component does not rely on third-party cookies. However, if your site uses third-party services (e.g., analytics, ads, or embeds), ensure they function without third-party cookies, as Chrome users may disable them in Privacy Settings. */}
       <div 
         className="absolute inset-0 z-0 parallax-bg" 
         style={{ transform: `translateY(${getParallaxValue()}px)` }}
       >
-        <img 
-          src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb" 
-          alt="Hero background" 
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
           className="w-full h-full object-cover opacity-80"
-        />
+          style={{ backgroundColor: '#1a1a1a' }} // Fallback background color
+        >
+          <source 
+            src={liveWallpaper} // Use the imported video
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
-      <div className="hero-content max-w-6xl mx-auto">
+      <div className="hero-content max-w-6xl mx-auto text-center relative z-10">
         <AnimatedElement type="fade-in">
           <h1 
             className="text-6xl md:text-8xl lg:text-9xl text-white font-sans font-bold mb-6 leading-tight tracking-tighter parallax-text" 
@@ -98,7 +108,7 @@ const HeroSection = () => {
       
       <button 
         onClick={scrollToAbout} 
-        className="scroll-down-button" 
+        className="scroll-down-button absolute bottom-8 z-10" 
         aria-label="Scroll to About section"
       >
         <ArrowDown className="text-white animate-bounce mt-6" />
